@@ -15,9 +15,9 @@ _data = {
 "move": SubResource("Animation_rdluc")
 }
 
-[node name="Character" type="Area2D"]
+[node name="Character" type="Area2D" groups=["Character"]]
 z_index = 2
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.2, 0.2)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_cbdud")

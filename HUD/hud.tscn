@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmhxl4d0jno2q"]
+
+[ext_resource type="Script" path="res://HUD/hud.gd" id="1_bn2oa"]
+[ext_resource type="PackedScene" uid="uid://c8eeonuxk3fm2" path="res://EndGameWindows/WinWindows/you_win.tscn" id="2_cjpei"]
+[ext_resource type="PackedScene" uid="uid://do8efjo4ev6vl" path="res://EndGameWindows/LoseWindows/you_lose.tscn" id="3_webbn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_os4n5"]
+font_size = 30
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_bn2oa")
+
+[node name="Mistakes" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 148.0
+offset_bottom = 87.0
+text = "Mistakes: 4 / 10"
+label_settings = SubResource("LabelSettings_os4n5")
+
+[node name="YouWin" parent="." instance=ExtResource("2_cjpei")]
+visible = false
+
+[node name="YouLose" parent="." instance=ExtResource("3_webbn")]
+visible = false

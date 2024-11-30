@@ -1,59 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://ceb7sne50rloc"]
+[gd_scene load_steps=4 format=3 uid="uid://ceb7sne50rloc"]
 
-[ext_resource type="Script" path="res://rocket.gd" id="1_wqmmn"]
-[ext_resource type="Texture2D" uid="uid://cb2muq4b4y7x3" path="res://Assets/rocket.png" id="2_iy0ue"]
+[ext_resource type="Script" path="res://Rocket/rocket.gd" id="1_wqmmn"]
+[ext_resource type="Texture2D" uid="uid://b6nyiylffofhg" path="res://Assets/Simple Shapes/Circle.png" id="2_5noib"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2e03m"]
-atlas = ExtResource("2_iy0ue")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uhb6s"]
-atlas = ExtResource("2_iy0ue")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kfinw"]
-atlas = ExtResource("2_iy0ue")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_42lxe"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2e03m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uhb6s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kfinw")
-}],
-"loop": true,
-"name": &"flying",
-"speed": 15.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvb7o"]
-radius = 2.0
-height = 12.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7tjj"]
+radius = 4.0
 
 [node name="Rocket" type="Area2D"]
+scale = Vector2(2, 2)
 collision_layer = 8
-collision_mask = 0
+collision_mask = 16
 script = ExtResource("1_wqmmn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.103076, 0)
-scale = Vector2(0.993558, 0.976757)
-sprite_frames = SubResource("SpriteFrames_42lxe")
-animation = &"flying"
-autoplay = "flying"
-frame_progress = 0.609115
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_gvb7o")
+shape = SubResource("CircleShape2D_h7tjj")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 unique_name_in_owner = true
 z_index = 1
-position = Vector2(0, 0.5)
-scale = Vector2(0.2, 0.65)
+position = Vector2(3.57628e-07, -3.57628e-07)
+scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.015625, 0.015625)
+texture = ExtResource("2_5noib")

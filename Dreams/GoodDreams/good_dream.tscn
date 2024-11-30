@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://f5kodgsu8hlt"]
+
+[ext_resource type="Script" path="res://Dreams/GoodDreams/good_dream.gd" id="1_cmhi8"]
+[ext_resource type="Texture2D" uid="uid://b6nyiylffofhg" path="res://Assets/Simple Shapes/Circle.png" id="1_pm6x0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8usna"]
+radius = 9.0
+
+[node name="GoodDream" type="Area2D" groups=["Dreams"]]
+modulate = Color(0, 0.84375, 0.84375, 1)
+collision_layer = 16
+collision_mask = 6
+script = ExtResource("1_cmhi8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("1_pm6x0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8usna")

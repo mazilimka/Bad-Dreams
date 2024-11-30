@@ -8,10 +8,10 @@ var direction
 var direction_angle
 var move_direction = Vector2.RIGHT
 var accelerate := 100.0
-var max_speed := 180.0
+var max_speed := 300.0
 var current_rotation := 90.0
-var rate_of_fire := 1.0
-var timer := 1.0 # чтобы в начале игры не было задержки
+var rate_of_fire := 0.4
+var timer := 0.0
 
 func _physics_process(delta: float) -> void:
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	timer += delta
 
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("shot") and timer >= rate_of_fire:
 		weapon.play('shot')
 		launch_rocket(move_direction)

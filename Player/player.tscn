@@ -100,16 +100,16 @@ animations = [{
 }],
 "loop": false,
 "name": &"shot",
-"speed": 10.0
+"speed": 20.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_airwf"]
 radius = 27.0
 height = 87.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 3
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.7, 0.7)
 collision_layer = 2
 script = ExtResource("1_47b1g")
 
@@ -122,8 +122,10 @@ autoplay = "idle"
 [node name="Weapon" type="AnimatedSprite2D" parent="Base"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_85nfp")
-animation = &"idle"
+animation = &"shot"
 autoplay = "idle"
+frame = 6
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4.5)

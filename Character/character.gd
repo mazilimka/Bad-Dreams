@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var block_timer: Timer = %BlockTimer
 
-var speed := 150.0
+var speed := 200.0
 var direction := Vector2.RIGHT
 #var block_timer := 1.0
 #var timer := 0.0
@@ -23,13 +23,23 @@ func _process(delta: float) -> void:
 		_is_colliding = true
 		if direction == Vector2.RIGHT:
 			direction = Vector2.LEFT
-		elif direction == Vector2.LEFT:
+		else:
 			direction = Vector2.RIGHT
 		block_timer.start(1.0)
 
 
 func _block_timer_timeout():
 	_is_colliding = false
+
+
+func character_decreasing():
+	scale -= Vector2(0.05, 0.05)
+	global_position.y += 7.0
+	speed += 20
+
+func character_increasing():
+	scale += Vector2(0.05, 0.05)
+	global_position.y -= 7.0
 
 
 func _area_entered():
