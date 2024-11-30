@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmhxl4d0jno2q"]
+[gd_scene load_steps=6 format=3 uid="uid://cmhxl4d0jno2q"]
 
 [ext_resource type="Script" path="res://HUD/hud.gd" id="1_bn2oa"]
-[ext_resource type="PackedScene" uid="uid://c8eeonuxk3fm2" path="res://EndGameWindows/WinWindows/you_win.tscn" id="2_cjpei"]
-[ext_resource type="PackedScene" uid="uid://do8efjo4ev6vl" path="res://EndGameWindows/LoseWindows/you_lose.tscn" id="3_webbn"]
+[ext_resource type="PackedScene" uid="uid://c8eeonuxk3fm2" path="res://Windows/WinWindows/you_win.tscn" id="2_cjpei"]
+[ext_resource type="PackedScene" uid="uid://do8efjo4ev6vl" path="res://Windows/LoseWindows/you_lose.tscn" id="3_webbn"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="4_og8xw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_os4n5"]
 font_size = 30
@@ -22,3 +23,14 @@ visible = false
 
 [node name="YouLose" parent="." instance=ExtResource("3_webbn")]
 visible = false
+
+[node name="Virtual Joystick" parent="." instance=ExtResource("4_og8xw")]
+visible = false
+offset_left = 50.0
+offset_top = -215.0
+offset_right = 286.0
+offset_bottom = 21.0
+action_left = "move_left"
+action_right = "move_right"
+action_up = "move_up"
+action_down = "move_down"

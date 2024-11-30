@@ -1,7 +1,7 @@
 extends Area2D
 
 var speed := 1500.0
-var direction = Vector2.RIGHT
+var direction := 0.0
 
 func _ready() -> void:
 	area_entered.connect(_collided_with_dream)
@@ -9,12 +9,16 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	global_position += direction * speed * delta
+	global_position.x += direction * speed * delta
 
 
-func set_direction(_dir: Vector2):
+func set_direction(_dir: float):
 	direction = _dir
-	rotation = _dir.angle() + deg_to_rad(90.0)
+	if _dir == 1:
+		rotation_degrees = 90.0
+	else:
+		rotation_degrees = -90.0
+		
 
 
 func _collided_with_dream(_area: Area2D):

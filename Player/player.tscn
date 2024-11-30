@@ -1,8 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://cgonja0unfup"]
+[gd_scene load_steps=19 format=3 uid="uid://cgonja0unfup"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_47b1g"]
 [ext_resource type="Texture2D" uid="uid://dubed78e465s1" path="res://Assets/RedTank/Bodies/body_halftrack.png" id="1_bqa7e"]
 [ext_resource type="Texture2D" uid="uid://bxc0ewxf1pncs" path="res://Assets/RedTank/Weapons/turret_01_mk1.png" id="2_4s1a4"]
+
+[sub_resource type="Gradient" id="Gradient_4ubc4"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tmc0h"]
+gradient = SubResource("Gradient_4ubc4")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r3ayd"]
 atlas = ExtResource("1_bqa7e")
@@ -112,6 +117,24 @@ z_index = 3
 scale = Vector2(0.7, 0.7)
 collision_layer = 2
 script = ExtResource("1_47b1g")
+
+[node name="PlayerHud" type="CanvasLayer" parent="."]
+
+[node name="TouchScreenButtonLeft" type="TouchScreenButton" parent="PlayerHud"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-877, 0)
+scale = Vector2(4.94531, 603)
+texture_normal = SubResource("GradientTexture1D_tmc0h")
+passby_press = true
+action = "move_left"
+
+[node name="TouchScreenButtonRight" type="TouchScreenButton" parent="PlayerHud"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(395, 0)
+scale = Vector2(6.12109, 598)
+texture_normal = SubResource("GradientTexture1D_tmc0h")
+passby_press = true
+action = "move_right"
 
 [node name="Base" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true

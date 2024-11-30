@@ -4,17 +4,14 @@ extends Area2D
 
 var speed := 200.0
 var direction := Vector2.RIGHT
-#var block_timer := 1.0
-#var timer := 0.0
 var _is_colliding := false
 
 func _ready() -> void:
-	area_entered.connect(_area_entered)
 	block_timer.timeout.connect(_block_timer_timeout) 
 
 
 func _process(delta: float) -> void:
-	speed = randf_range(50.0, 400.0)
+	#speed = randf_range(50.0, 400.0)
 	global_position += direction * speed * delta
 	
 	if $RayCastLeft.is_colliding() or $RayCastRight.is_colliding() and not _is_colliding:
@@ -40,7 +37,4 @@ func character_decreasing():
 func character_increasing():
 	scale += Vector2(0.05, 0.05)
 	global_position.y -= 7.0
-
-
-func _area_entered():
-	pass
+	speed += 20

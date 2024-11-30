@@ -6,42 +6,44 @@ extends CharacterBody2D
 
 var direction
 var direction_angle
-var move_direction = Vector2.RIGHT
+var move_direction := 1.0
 var accelerate := 100.0
 var max_speed := 300.0
 var current_rotation := 90.0
-var rate_of_fire := 0.4
+var rate_of_fire := 1
 var timer := 0.0
+var center_screen := Vector2(800 / 2, 600 / 2)
 
 func _physics_process(delta: float) -> void:
-	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
-	direction_angle = rad_to_deg(direction.angle()) + 90.0
-	if direction != Vector2.ZERO:
+	direction = Input.get_axis("move_left", "move_right")
+	if direction != 0.0:
 		move_direction = direction
 	
 	if velocity.length() >= max_speed:
 		velocity = velocity.normalized() * max_speed
 	
-	if direction == Vector2.ZERO:
-		velocity = Vector2.ZERO
+	if direction == 0.0:
+		velocity.x = 0.0
 	
-	velocity.x = move_toward(velocity.x, max_speed * direction.x, accelerate)
-	velocity.y = move_toward(velocity.y, max_speed * direction.y, accelerate)
-	velocity += direction * accelerate * delta
+	if direction == 1:
+		direction_angle = 90
+	elif direction == -1:
+		direction_angle = -90
+	
+	velocity.x = move_toward(velocity.x, max_speed * direction, accelerate)
+	velocity.x += direction * accelerate * delta
 	move_and_slide()
 	set_dir_and_anim()
+	
 	timer += delta
-
-
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("shot") and timer >= rate_of_fire:
+	if timer >= rate_of_fire:
 		weapon.play('shot')
 		launch_rocket(move_direction)
 		timer = 0.0
 
 
 func set_dir_and_anim():
-	if direction != Vector2.ZERO:
+	if direction != 0.0:
 		rotation_degrees = direction_angle
 		current_rotation = direction_angle
 		base.play('move')
@@ -50,7 +52,7 @@ func set_dir_and_anim():
 		base.play('idle')
 
 
-func launch_rocket(_to: Vector2):
+func launch_rocket(_to: float):
 	var rocket_instance = rocket_scene.instantiate()
 	owner.add_child(rocket_instance)
 	rocket_instance.global_position = %MarkerForRocket.global_position

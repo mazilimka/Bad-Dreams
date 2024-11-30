@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Bad Dreams"
-run/main_scene="res://Main/main.tscn"
+run/main_scene="res://Windows/StartMenu/start_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+run/max_fps=140
+config/icon="res://Assets/sleeping_boy.png"
 
 [autoload]
 
@@ -27,6 +28,10 @@ window/size/viewport_width=800
 window/size/viewport_height=600
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/virtual_joystick/plugin.cfg")
 
 [global_group]
 
@@ -74,3 +79,4 @@ shot={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

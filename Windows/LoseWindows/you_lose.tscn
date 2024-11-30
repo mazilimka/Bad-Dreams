@@ -1,26 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8eeonuxk3fm2"]
+[gd_scene load_steps=3 format=3 uid="uid://do8efjo4ev6vl"]
 
-[ext_resource type="Script" path="res://EndGameWindows/WinWindows/you_win.gd" id="1_ur3l8"]
+[ext_resource type="Script" path="res://Windows/LoseWindows/you_lose.gd" id="1_0iw4a"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_lec22"]
+[sub_resource type="LabelSettings" id="LabelSettings_b3ydw"]
 font_size = 40
 outline_size = 13
-outline_color = Color(0.0473022, 0.605469, 0, 1)
+outline_color = Color(1, 0.0234375, 0, 1)
 
-[node name="YouWin" type="PanelContainer"]
+[node name="YouLose" type="PanelContainer"]
 process_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -187.0
+offset_left = -122.0
 offset_top = -95.5
-offset_right = 187.0
+offset_right = 122.0
 offset_bottom = 95.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ur3l8")
+script = ExtResource("1_0iw4a")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -35,8 +35,8 @@ theme_override_constants/separation = 7
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "YOU WIN!"
-label_settings = SubResource("LabelSettings_lec22")
+text = "YOU LOSE!"
+label_settings = SubResource("LabelSettings_b3ydw")
 horizontal_alignment = 1
 
 [node name="RestartGame" type="Button" parent="MarginContainer/VBoxContainer"]
