@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cgonja0unfup"]
+[gd_scene load_steps=17 format=3 uid="uid://cgonja0unfup"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_47b1g"]
 [ext_resource type="Texture2D" uid="uid://dubed78e465s1" path="res://Assets/RedTank/Bodies/body_halftrack.png" id="1_bqa7e"]
@@ -66,10 +66,6 @@ region = Rect2(640, 0, 128, 128)
 atlas = ExtResource("2_4s1a4")
 region = Rect2(768, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8lkaj"]
-atlas = ExtResource("2_4s1a4")
-region = Rect2(896, 0, 128, 128)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_85nfp"]
 animations = [{
 "frames": [{
@@ -100,7 +96,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_7tt0j")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8lkaj")
+"texture": SubResource("AtlasTexture_wq4d2")
 }],
 "loop": false,
 "name": &"shot",
@@ -112,6 +108,7 @@ radius = 27.0
 height = 87.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 3
 scale = Vector2(0.8, 0.8)
 collision_layer = 2
 script = ExtResource("1_47b1g")
@@ -126,7 +123,12 @@ autoplay = "idle"
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_85nfp")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4.5)
 shape = SubResource("CapsuleShape2D_airwf")
+
+[node name="MarkerForRocket" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -47.26)

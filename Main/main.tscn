@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://birvl22pwibtn"]
+[gd_scene load_steps=6 format=3 uid="uid://birvl22pwibtn"]
 
 [ext_resource type="PackedScene" uid="uid://cgonja0unfup" path="res://Player/player.tscn" id="1_70yno"]
 [ext_resource type="PackedScene" uid="uid://bfiqaysq435lw" path="res://Wall/wall.tscn" id="2_fu4gi"]
+[ext_resource type="PackedScene" uid="uid://dpwo180bwe82o" path="res://Character/character.tscn" id="3_ijfxe"]
 
 [sub_resource type="Gradient" id="Gradient_avvws"]
 colors = PackedColorArray(0.0307465, 0.0760758, 0.253906, 1, 0.301462, 0.324219, 0.0329285, 1)
@@ -20,10 +21,7 @@ offset_bottom = 648.0
 texture = SubResource("GradientTexture2D_07vcd")
 
 [node name="Player" parent="." instance=ExtResource("1_70yno")]
-position = Vector2(53, 63)
-mass = 0.5
-lock_rotation = true
-linear_damp = 0.1
+position = Vector2(874, 396)
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -33,7 +31,7 @@ rotation = 1.5708
 scale = Vector2(6.87, 1)
 
 [node name="Wall2" parent="Walls" instance=ExtResource("2_fu4gi")]
-position = Vector2(1162, 318)
+position = Vector2(1162, 325)
 rotation = 1.5708
 scale = Vector2(6.87, 1)
 
@@ -44,3 +42,10 @@ scale = Vector2(12.295, 1)
 [node name="Wall4" parent="Walls" instance=ExtResource("2_fu4gi")]
 position = Vector2(576, 658)
 scale = Vector2(12.295, 1)
+
+[node name="Character" parent="." instance=ExtResource("3_ijfxe")]
+position = Vector2(574, 560)
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
