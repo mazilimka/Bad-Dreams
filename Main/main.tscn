@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://birvl22pwibtn"]
+[gd_scene load_steps=8 format=3 uid="uid://birvl22pwibtn"]
 
 [ext_resource type="PackedScene" uid="uid://cgonja0unfup" path="res://Player/player.tscn" id="1_70yno"]
 [ext_resource type="Script" path="res://Main/main.gd" id="1_masoj"]
 [ext_resource type="PackedScene" uid="uid://bfiqaysq435lw" path="res://Wall/wall.tscn" id="2_fu4gi"]
 [ext_resource type="PackedScene" uid="uid://dpwo180bwe82o" path="res://Character/character.tscn" id="3_ijfxe"]
+[ext_resource type="PackedScene" uid="uid://bwvtsbsy064qy" path="res://AlarmArea/alarm_area.tscn" id="5_7hdn5"]
 
 [sub_resource type="Gradient" id="Gradient_avvws"]
 colors = PackedColorArray(0.0307465, 0.0760758, 0.253906, 1, 0.301462, 0.324219, 0.0329285, 1)
@@ -49,7 +50,7 @@ position = Vector2(576, 610)
 scale = Vector2(12.295, 1)
 
 [node name="Character" parent="." instance=ExtResource("3_ijfxe")]
-position = Vector2(574, 572)
+position = Vector2(400, 572)
 
 [node name="TimerForGoodDreams" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -58,3 +59,9 @@ autostart = true
 [node name="TimerForBadDreams" type="Timer" parent="."]
 unique_name_in_owner = true
 autostart = true
+
+[node name="AlarmArea" parent="." instance=ExtResource("5_7hdn5")]
+position = Vector2(-62, 570)
+
+[node name="AlarmArea2" parent="." instance=ExtResource("5_7hdn5")]
+position = Vector2(863, 570)

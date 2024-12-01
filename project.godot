@@ -22,6 +22,10 @@ Events="*res://Autoloads/Events.gd"
 Global="*res://Autoloads/Global.gd"
 Hud="*res://HUD/hud.tscn"
 
+[debug]
+
+gdscript/warnings/shadowed_variable_base_class=0
+
 [display]
 
 window/size/viewport_width=800
